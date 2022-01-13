@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import Test from './pages/Test';
+import Home from './pages/Home';
+import { Nav } from './component/nav/Nav';
+export default class App extends Component<any, any> {
+  render() {
+    return (
+      <div className="App">
+        <Nav></Nav>
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        <div className="container-fluid">
+          <Routes>
+            <Route path="/" element={<Home name="Home-Name" />} />
+            <Route path="/test" element={<Test />} />
+            <Route path="/home" element={<Home />} />
+          </Routes>
+        </div>
+      </div>
+    );
+  }
 }
-
-export default App;
